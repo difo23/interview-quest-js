@@ -12,10 +12,10 @@ Explanation: The answer is "abc", with the length of 3.
 
 var lengthOfLongestSubstring = function(s) {
 
-    return s.split("")
+    return s.split("") // transform to array
             .filter( (ch , i) => !(s.substring(i+1, s.length).split('')
-            .includes(ch)))
-            .length
+            .includes(ch)))//end filter
+            .length // length of filter result
 }
 
 console.log(lengthOfLongestSubstring("abbdbb"));
