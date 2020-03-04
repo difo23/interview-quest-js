@@ -10,7 +10,7 @@ Output : 700
 
 #BRUTE FORCE : iterate through all windows of size k
 
-arr = [700, 200, 300, 400, 600, 100, 800]
+arr = [100, 200, 300, 400, 600, 100, 800]
 k = 2
 
 def maxSumKElement(arr, k):
@@ -31,12 +31,13 @@ print( maxSumKElement(arr, k))
 #SLIDING WINDOW
 
 def maxSumKElementSlibingWindows(arr, k):
-    max_sum = 0
+    
     window_sum = 0
 
     # calculate sum of 1st window
     for i in range(k):  window_sum += arr[i] 
-
+    
+    max_sum = window_sum
     #slide window from start to end in array.
     # desde k hasta len(arr), 
     for i in range(k, len(arr)):
@@ -45,16 +46,3 @@ def maxSumKElementSlibingWindows(arr, k):
     return max_sum
 
 print(maxSumKElementSlibingWindows(arr, k))
-
-
-
-# SLING WINDOW WITH FILTER AND REDUCE
-
-def maxSumKElementFilterReduce(arr, k):
-    for i in range()
-    slice_window = slice(k, len(arr))
-    print(arr[slice_window])
-
-
-
-maxSumKElementFilterReduce(arr, k)
