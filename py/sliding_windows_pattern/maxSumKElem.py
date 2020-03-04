@@ -36,7 +36,6 @@ def maxSumKElementSlibingWindows(arr, k):
 
     # calculate sum of 1st window
     for i in range(k):  window_sum += arr[i] 
-    
     max_sum = window_sum
     #slide window from start to end in array.
     # desde k hasta len(arr), 
