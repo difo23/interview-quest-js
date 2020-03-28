@@ -23,6 +23,9 @@ const reverseStringMethod = (st) => {
 	return st.split('').reverse().join('');
 };
 
-console.log(reverseStringFor(st));
-console.log(reverseStringMap(st));
-console.log(reverseStringMethod(st));
+const reverseStringDestructuring = (st) => [ ...st ].reverse().join('');
+
+console.log('Solution 1:', reverseStringMap(st));
+console.log('Solution 2:', reverseStringFor(st));
+console.log('Solution 3:', reverseStringMethod(st));
+console.log('Solution 4:', reverseStringDestructuring(st));
