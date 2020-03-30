@@ -5,7 +5,7 @@ let arr = [ 3, 1, 4, 6, 7, 4 ];
  * Usamos la estructura de datos set en js
  */
 
-let firstRecurringNumber = (arr) => {
+let firstRecurringNumberSet = (arr) => {
 	let setArr = new Set();
 
 	for (let e of arr) {
@@ -18,4 +18,17 @@ let firstRecurringNumber = (arr) => {
 	return undefined;
 };
 
-console.log('Resulatado 1:', firstRecurringNumber(arr));
+let firstRecurringNumberMap = (arr) => {
+	let setArr = new Map();
+
+	for (let e of arr) {
+		if (setArr.has(e)) {
+			//retorno la primera repeticion de e
+			return e;
+		}
+		setArr.set(e, 0);
+	}
+	return undefined;
+};
+
+console.log('Resulatado 1:', firstRecurringNumberMap(arr));
