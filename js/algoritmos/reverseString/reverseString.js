@@ -29,3 +29,5 @@ console.log('Solution 1:', reverseStringMap(st));
 console.log('Solution 2:', reverseStringFor(st));
 console.log('Solution 3:', reverseStringMethod(st));
 console.log('Solution 4:', reverseStringDestructuring(st));
+
+module.exports = reverseStringFor;

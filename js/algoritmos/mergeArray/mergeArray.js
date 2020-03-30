@@ -35,3 +35,6 @@ const mergeSorted = (array_one, array_two) => {
 
 console.log('Solution 1:', mergeSortedArray(array_one, array_two));
 console.log('Solution 2:', mergeSorted(array_one, array_two));
+
+
+module.exports =  mergeSorted;

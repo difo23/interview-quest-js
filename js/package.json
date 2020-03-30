@@ -1,0 +1,25 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Ejercicios sobre algoritmos y estructuras de datos",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/difo23/interviewQuestAnsJS.git"
+  },
+  "keywords": [
+    "Algoritmos",
+    "Estructuras",
+    "TDD",
+    "Interview"
+  ],
+  "author": "Lizandro Jose Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/difo23/interviewQuestAnsJS/issues"
+  },
+  "homepage": "https://github.com/difo23/interviewQuestAnsJS#readme"
+}
