@@ -31,4 +31,4 @@ let firstRecurringNumberMap = (arr) => {
 	return undefined;
 };
 
-console.log('Resulatado 1:', firstRecurringNumberMap(arr));
+module.exports = firstRecurringNumberMap;
