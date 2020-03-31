@@ -67,3 +67,5 @@ let checkPermutationASCII = (st, ts) => {
 };
 
 console.log(checkPermutationASCII('vcaa', 'acvv'));
+
+module.exports = checkPermutation;

@@ -55,4 +55,6 @@ let setSame = (props) => {
 };
 
 console.log('Resultado Algoritmo de Floyd:', findDuplicateFloyd(arr));
-console.log('Resultado :', findDuplicate(arr));
+console.log('Resultado :', findDuplicatedNumber(arr));
+
+module.exports = findDuplicateFloyd;
