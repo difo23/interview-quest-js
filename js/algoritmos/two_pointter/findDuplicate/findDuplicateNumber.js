@@ -39,12 +39,12 @@ let setFast = (nums) => {
 		s = nums[s];
 	} while (s !== f);
 
-	return { s, nums };
+	return { f, nums };
 };
 
 let setSame = (props) => {
-	let s = props.s;
-	let f = props.nums[0];
+	let s = 0;
+	let f = props.f;
 
 	while (s !== f) {
 		f = props.nums[f];
@@ -54,4 +54,5 @@ let setSame = (props) => {
 	return s;
 };
 
-console.log(findDuplicateFloyd(arr));
+console.log('Resultado Algoritmo de Floyd:', findDuplicateFloyd(arr));
+console.log('Resultado :', findDuplicate(arr));
