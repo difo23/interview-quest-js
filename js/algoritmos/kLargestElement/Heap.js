@@ -10,12 +10,11 @@ const Node = require('./NodeHeap');
 
 //Map(key = index, value)
 
-class heap {
+class Heap {
 	constructor(arr) {
 		//data ejemplo [1,23,12,9,30,2,50]
 		this.data = arr;
 		this.len = arr.length;
-		this.heap = new Map();
 		this._heapTransform();
 	}
 
@@ -23,52 +22,61 @@ class heap {
 		return 2 * i + 1;
 	}
 
-	_right(i) {
+	_rigth(i) {
 		return 2 * i + 2;
 	}
-
 
 	_root(i) {
 		return Math.floor((i - 1) / 2);
 	}
 
-	_swap(i, root){
-		this.heap.set(i, this.data[root]);
-		this.heap.set(root, this.data[i]);
+	_swap(min, max) {
+		[ this.data[min], this.data[max] ] = [ this.data[max], this.data[min] ];
 	}
 
-	_heap(i){
-		let left = this._left(i);
-		let rigth = this._rigth(i);
-		let root = i;
+	_heapMax() {
+		let i = Math.floor(this.len / 2 - 1);
 
-		if(left < this.len && this.data[left]) > this.data[root] ){
-			root = left;
+		while (i >= 0) {
+			this._heapify(i, this.len);
+			--i;
 		}
-
-		if(rigth < this.len && this.data[rigth]) > this.data[root] ){
-			root = rigth;
-		}
-	
-		if(root != i){
-			this._swap(i, root);
-			this._heap(root)
-		}
-
 	}
 
-	
+	_heapify(i, len) {
+		let left, rigth, rtLagest;
+		while (i < len) {
+			left = this._left(i);
+			rigth = this._rigth(i);
+			rtLagest = i;
+
+			if (left < len && this.data[left] > this.data[rtLagest]) {
+				rtLagest = left;
+			}
+
+			if (rigth < len && this.data[rigth] > this.data[rtLagest]) {
+				rtLagest = rigth;
+			}
+
+			if (i === rtLagest) return;
+
+			this._swap(i, rtLagest);
+			i = rtLagest;
+		}
+	}
+
 	_heapTransform() {
-		let len = this.data.length;
-		//Recorro el arreglo desde la mitad del mismo
-		for (let i = Math.floor(len / 2); i >= 0; i--) {
-			this._heap(i);
+		this._heapMax();
+		let lastElement = this.len - 1;
+
+		while (lastElement > 0) {
+			this._swap(0, lastElement);
+			this._heapify(0, lastElement);
+			--lastElement;
 		}
-		// Organizo todo el arreglo
-		for (let i = this.len -1; i >=0 ; i--){
-			this._swap(0, i);
-			len--;
-			this._heap(0);
-		} 
 	}
 }
+
+let sol = new Heap([ 3, 0, 2, 5, -1, 4, 1 ]);
+
+console.log(sol.data);
