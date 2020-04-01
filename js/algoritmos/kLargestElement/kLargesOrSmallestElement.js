@@ -11,7 +11,6 @@ let kSmallest = (arr, k) => {
 		.filter((num, i) => i < k);
 };
 
-
 let kLargest = (arr, k) => {
 	return arr
 		.sort((num, nextnum) => {
@@ -24,7 +23,16 @@ let array = [ 1, 23, 12, 9, 30, 2, 50 ];
 
 let k = 3;
 
+//TODO: Hacer otra version con una logica mas interesante usando Heap
+
+const KLargestHeap = (arr, k)=>{
+	
+
+} 
+
 console.log(kLargest(array, k));
 //result = 50, 30, 23
 console.log(kSmallest(array, k));
 //result = [ 1, 2, 9 ]
+
+module.exports = { kLargest, kSmallest };
