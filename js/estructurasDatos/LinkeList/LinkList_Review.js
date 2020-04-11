@@ -8,7 +8,9 @@ class LinkNode {
 
 class LinkList {
 	constructor() {
-		this.head = new LinkNode('HEAD', null);
+		this.head = new LinkNode('HEAD', null, 0);
+		this.tail = head;
+		this._length = 0;
 	}
 
 	addNode(value) {
