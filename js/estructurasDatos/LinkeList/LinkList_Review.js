@@ -13,8 +13,13 @@ class LinkList {
 		this._length = 0;
 	}
 
-	addNode(value) {
-		if (!this.head.getNext()) {
-		}
+	append(value) {
+		/**
+         * Append new node in the end of list
+         */
+        let newNode =  new LinkNode(value, null)
+        this.tail.next = newNode;
+        this.tail = newNode;
+        
 	}
 }
