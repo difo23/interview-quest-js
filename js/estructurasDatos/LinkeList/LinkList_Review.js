@@ -11,15 +11,40 @@ class LinkList {
 		this.head = new LinkNode('HEAD', null, 0);
 		this.tail = head;
 		this._length = 0;
-	}
+    }
+    
+    _incrementPosFrom(pos){
+        let node = this.head.next;
+        if(!node) return;
+
+        while (pos <= this._length){
+            if(pos === node.position){
+              node.position++;
+              pos++;    
+            }
+            if(!nod.next) return;
+            node = node.next;
+            
+
+        }
+
+    }
 
 	append(value) {
 		/**
          * Append new node in the end of list
          */
-        let newNode =  new LinkNode(value, null)
+        this._length++;
+        let newNode =  new LinkNode(value, null, this._length)
         this.tail.next = newNode;
         this.tail = newNode;
         
-	}
+    }
+    
+    prepend(value){
+        
+
+    }
+    
+
 }
