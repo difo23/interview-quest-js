@@ -42,8 +42,10 @@ class LinkList {
     }
     
     prepend(value){
-        
-
+        this._incrementPosFrom(1);
+        let newNode = new LinkNode(value, this.head.next, 1);
+        this.head.next = newNode;
+        this._length++;
     }
     
 
