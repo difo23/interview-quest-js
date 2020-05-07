@@ -68,3 +68,4 @@ let clockGrade = (h, m) => {
 
 console.log(clockGrade(3, 30));
 console.log(clockGrade(12, 30));
+
