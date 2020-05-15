@@ -16,35 +16,36 @@ Output: 5
 Explanation: The longest substrings with no more than '3' distinct characters are "cbbeb" & "bbebi".
 */
 
-let longestKDistChar = (arr, k) => {
-	let frecuencyChar = {};
+const longest_substring_with_k_distinct = function(str, k) {
+	// TODO: Write your code here
+
+	let hashStr = {};
 	let start = 0;
-	let longest = 0;
+	let maxLength = 0;
 
-	for (let end = 0; end < arr.length; end++) {
-		let endchar = arr[end];
+	for (let end = 0; end < str.length; ++end) {
+		let endChar = str[end];
 
-		if (!(endchar in frecuencyChar)) {
-			frecuencyChar[endchar] = 0;
+		if (!(endChar in hashStr)) {
+			hashStr[endChar] = 0;
 		}
+		hashStr[endChar] += 1;
 
-		frecuencyChar[endchar] += 1;
-
-		while (Object.keys(frecuencyChar).length > k) {
-			let startchar = arr[start];
-			frecuencyChar[startchar] -= 1;
-			if (frecuencyChar[startchar] === 0) {
-				delete frecuencyChar[startchar];
+		while (Object.keys(hashStr).length > k) {
+			let startChar = str[start];
+			hashStr[startChar] -= 1;
+			if (hashStr[startChar] === 0) {
+				delete hashStr[startChar];
 			}
-			start += 1;
+			++start;
 		}
 
-		longest = Math.max(longest, end - start + 1);
+		maxLength = Math.max(maxLength, end - start + 1);
 	}
 
-	return longest;
+	return maxLength;
 };
 
-let arr = 'araaci';
-let k = 1;
-console.log('Solucion: ', longestKDistChar(arr, k));
+console.log(`Length of the longest substring: ${longest_substring_with_k_distinct('araaci', 2)}`);
+console.log(`Length of the longest substring: ${longest_substring_with_k_distinct('araaci', 1)}`);
+console.log(`Length of the longest substring: ${longest_substring_with_k_distinct('cbbebi', 3)}`);

@@ -28,16 +28,8 @@ let st5 = 'aaacb',
 	pt5 = 'abc';
 
 let permStringMatch = (st, pt) => {
-	//Restrinciones
-	// Caso #1
 	if (st.legth < 0 || pt.legth < 0) return false;
-
-	// Usar ptSet para contar el numero de distintos caracteres en el pt.
 	let ptSet = new Set(pt);
-
-	// Caso #0
-
-	//Hacer una seudo tabla hash usando objeto pas pt
 	let frecuenciaCharPt = {};
 
 	for (let e of pt) {
@@ -54,7 +46,6 @@ let permStringMatch = (st, pt) => {
 
 	for (let end = 0; end < st.length; end++) {
 		let endChar = st[end];
-
 		if (endChar in frecuenciaCharPt) {
 			frecuenciaCharPt[endChar] -= 1;
 			if (frecuenciaCharPt[endChar] === 0) {
@@ -62,16 +53,17 @@ let permStringMatch = (st, pt) => {
 			}
 		}
 
-		// Comparar con el numero de caracteres distintos dentro de pt.
 		if (countMatch === ptSet.size) return true;
 
-		if (end - start + 1 > pt.length) {
+		if (end >= pt.length-1) {
 			let startChar = st[start];
-			if (frecuenciaCharPt[startChar] === 0) {
-				countMatch -= 1;
-				frecuenciaCharPt += 1;
-			}
 			start += 1;
+			if (startChar in frecuenciaCharPt) {
+				if (frecuenciaCharPt[startChar] === 0) {
+					countMatch -= 1;
+				}
+				frecuenciaCharPt[startChar] += 1;
+			}
 		}
 	}
 
