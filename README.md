@@ -17,6 +17,8 @@ Dado un arreglo, encuentra el promedio de todos los sub arreglos de tamaño k.
 Input: arr = [1, 3, 2, 6, -1, 4, 1, 8, 2];  k= 5
 Output: [ 2.2, 2.8, 2.4, 3.6, 2.8]
 
+![Problema 1](https://lh6.googleusercontent.com/5LgvQJz1nniwMIqEs8csP2_tOMUq81vDE91atpH59fYgcva-aGcsdM6SEhSoh9ImtxwYm9mSjhrLNIuTZJnPUnPZ_FELKJSVUsAAzKTN)
+
 Este problema puede tener varias soluciones posibles que pueden ser validas,  en esta introducción tomaremos dos soluciones posibles, una solución que no sigue ninguna estrategia en particular que le llamaremos fuerza bruta (FB) y otra solución que si sigue una estrategia en este caso Sliding Windows (SW). Con estas dos estrategias vamos a resaltar la importancia de tener un plan a seguir bien pensado para resolver este tipo de problemas. 
 
 
