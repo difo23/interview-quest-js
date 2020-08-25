@@ -35,7 +35,12 @@ let checkPermutation = (st, ts) => {
 	return true;
 };
 
-console.log(checkPermutation('sccs', 'cscs'));
+console.log(
+	checkPermutation(
+		'sccs',
+		'cscs'
+	)
+);
 
 // Check permutatuib con ASCII table
 
