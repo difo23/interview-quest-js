@@ -68,4 +68,4 @@ function print(triangle) {
 
 
 
-print(trianglePascal(15));
+print(trianglePascal(6));
