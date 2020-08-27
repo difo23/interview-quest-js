@@ -20,38 +20,47 @@ function dynamic() {
 
     let cache = new Map();
     let ant_arr = [];
-    let iter = 0;
 
-
-    // two points patterns
+    // Pattern: Two Pointers
     const findNearestLarger = (idx, arr) => {
-        const minVal = arr[idx], len = arr.length;
-        var down = idx;
-        while (++idx < len || --down >= 0) {
-            ++iter;
-            if (idx < len && arr[idx] > minVal) { return idx }
-            if (down >= 0 && arr[down] > minVal) { return down }
+
+        const value = arr[idx], len = arr.length;
+
+        //Two pointers start with the same value
+        let [down, up] = [idx, idx]
+
+        while (++up < len || --down >= 0) {
+
+             //  If two distances to larger numbers are the equal, 
+            // then return any one of them.
+
+            if (down >= 0 && arr[down] > value) { return down }
+            if (up < len && arr[up] > value) { return up }
         }
+
+        // If the  array  at i doesn't have a nearest larger integer,
+        // then return null.
+
         return null;
     }
 
 
     return function nearestLarger(idx, arr) {
-        iter = 0;
+
+        
+        // Compare previous arr with new arr received
         if (JSON.stringify(ant_arr) === JSON.stringify(arr)) {
-            console.log('Iteraciones: ', iter, ant_arr)
+
             return cache.get(idx);
         } else {
 
-            // Update new array first time 
+            // Update the new matrix for the first time
             ant_arr = arr;
 
-            //Preprocesing
+            //Preprocessing
             for (let i = 0; i < ant_arr.length; i++) {
                 cache.set(i, findNearestLarger(i, ant_arr));
-                ++iter;
             }
-            console.log('Iteraciones: ', iter, ant_arr)
 
             return cache.get(idx);
         }
@@ -70,6 +79,6 @@ console.log(fastNearestLarger(0, [4, 1, 3, 5, 6])); // return index 3; 15 iter f
 console.log(fastNearestLarger(3, [7, 8, 3, 6, 4, 2, 5])); // return index 1; 26 iter first
 
 console.log(fastNearestLarger(1, [8, 9, 2, 3, 4, 6, 5])); // return index null; 23 iter first
-console.log(fastNearestLarger(3, [8, 9, 2, 3, 4, 6, 5])); // return index 4; 0 iter second
+console.log(fastNearestLarger(2, [8, 9, 2, 3, 4, 6, 5])); // return index 4; 0 iter second
 console.log(fastNearestLarger(0, [8, 9, 2, 3, 4, 6, 5])); // return index 4; 0 iter third
 
