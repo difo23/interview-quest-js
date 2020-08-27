@@ -28,12 +28,14 @@ function dynamic() {
 
         //Two pointers start with the same value
         let [down, up] = [idx, idx]
+        let resultIdx = null;
 
-        while (++up < len || --down >= 0) {
+        while (up < len || down >= 0) {
 
-             //  If two distances to larger numbers are the equal, 
+            //  If two distances to larger numbers are the equal, 
             // then return any one of them.
-
+            ++up;
+            --down;
             if (down >= 0 && arr[down] > value) { return down }
             if (up < len && arr[up] > value) { return up }
         }
@@ -47,10 +49,11 @@ function dynamic() {
 
     return function nearestLarger(idx, arr) {
 
-        
+
         // Compare previous arr with new arr received
         if (JSON.stringify(ant_arr) === JSON.stringify(arr)) {
-
+            //Follow-up: If you can preprocess the array,
+            // can you do this in constant time?
             return cache.get(idx);
         } else {
 
@@ -79,6 +82,6 @@ console.log(fastNearestLarger(0, [4, 1, 3, 5, 6])); // return index 3; 15 iter f
 console.log(fastNearestLarger(3, [7, 8, 3, 6, 4, 2, 5])); // return index 1; 26 iter first
 
 console.log(fastNearestLarger(1, [8, 9, 2, 3, 4, 6, 5])); // return index null; 23 iter first
-console.log(fastNearestLarger(2, [8, 9, 2, 3, 4, 6, 5])); // return index 4; 0 iter second
+console.log(fastNearestLarger(2, [8, 9, 2, 3, 4, 6, 5])); // return index 1; 0 iter second
 console.log(fastNearestLarger(0, [8, 9, 2, 3, 4, 6, 5])); // return index 4; 0 iter third
 
