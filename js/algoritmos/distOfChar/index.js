@@ -19,13 +19,17 @@ print(shortest_dist('helloworld', 'l'))
 */
 
 
-function hortest_dist(st, char) {
+function shortestDist(st, char) {
 
     let len = st.length - 1
-    let [winLeftStart, winLeftEnd, winRightStart, winRightEnd] = [0, 0, len, len];
+    let [
+        winLeftStart,
+        winLeftEnd,
+        winRightStart,
+        winRightEnd
+    ] = [0, 0, len, len];
     let [pivotLeft, pivotRight] = [null, null];
     let dist = [];
-    let iter = 0;
 
     while (winLeftEnd <= len) {
 
@@ -34,28 +38,23 @@ function hortest_dist(st, char) {
 
             pivotLeft = winLeftEnd;
             while (winLeftStart <= pivotLeft) {
-                ++iter;
-                if (!dist[winLeftStart]) {
-
-                    dist[winLeftStart] = pivotLeft - winLeftStart;
-                }
+                dist[winLeftStart] = pivotLeft - winLeftStart;
                 ++winLeftStart;
 
             }
-        } else {
 
-            if (!!pivotLeft) {
-                let abs = winLeftEnd - pivotLeft;
+        } if (!!pivotLeft) {
 
-                if (dist[winLeftEnd]) {
-                    //End when have frist match in dist
-                    dist[winLeftEnd] = dist[winLeftEnd] < abs ? dist[winLeftEnd] : abs;
-                    return { dist, iter };
-                }
-
-                dist[winLeftEnd] = abs;
-
+            if (dist[winLeftEnd]) {
+                //End when have frist match in dist
+                dist[winLeftEnd] =
+                    dist[winLeftEnd] < winLeftEnd - pivotLeft ?
+                        dist[winLeftEnd] :
+                        winLeftEnd - pivotLeft;
+                return dist;
             }
+
+            dist[winLeftEnd] = winLeftEnd - pivotLeft;
         }
 
 
@@ -64,34 +63,23 @@ function hortest_dist(st, char) {
 
             pivotRight = winRightEnd;
             while (winRightStart >= pivotRight) {
-                ++iter;
-                if (!dist[winRightStart]) {
 
-                    dist[winRightStart] = winRightStart - pivotRight;
-
-                }
+                dist[winRightStart] = winRightStart - pivotRight;
                 --winRightStart;
             }
 
-        } else {
+        } else if (!!pivotRight) {
 
-            if (!!pivotRight) {
-
-                dist[winRightEnd] = pivotRight - winRightEnd;
-
-            }
-
+            dist[winRightEnd] = pivotRight - winRightEnd;
         }
 
         // New pointers 
         --winRightEnd;
         ++winLeftEnd;
-
-        // Iterations for testing
-        ++iter;
+        
 
     }
 
 }
 
-console.log(hortest_dist('helloworld', 'l'))
+console.log(shortestDist('helloworld', 'l'))
