@@ -33,7 +33,7 @@ function shortestDist(st, char) {
 
     while (winLeftEnd <= len) {
 
-        // window Left
+        /** window Left*/
         if (st[winLeftEnd] === char) {
 
             pivotLeft = winLeftEnd;
@@ -58,7 +58,7 @@ function shortestDist(st, char) {
         }
 
 
-        // Window right
+        /** Window right*/
         if (st[winRightEnd] === char) {
 
             pivotRight = winRightEnd;
@@ -73,13 +73,12 @@ function shortestDist(st, char) {
             dist[winRightEnd] = pivotRight - winRightEnd;
         }
 
-        // New pointers 
+        /** Grow Windows*/
         --winRightEnd;
         ++winLeftEnd;
-        
-
     }
+    return [];
 
 }
 
-console.log(shortestDist('helloworld', 'l'))
+console.log(shortestDist('hexxoworxd', 'l'))

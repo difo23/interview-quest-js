@@ -6,10 +6,10 @@
         Output: [1, 1, 2, 2, 3, 3, 3]
 */
 
-let nums = [ 3, 3, 2, 1, 3, 2, 1 ];
+
 
 let threeUniqueNumbers = (nums) => {
-	let arr = [ [], [], [] ];
+	let arr = [[], [], []];
 
 	for (num of nums) {
 		arr[num - 1].push(num);
@@ -17,5 +17,7 @@ let threeUniqueNumbers = (nums) => {
 
 	return [].concat(...arr);
 };
+
+let nums = [3, 3, 2, 1, 3, 2, 1];
 
 console.log(threeUniqueNumbers(nums));
