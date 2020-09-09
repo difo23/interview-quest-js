@@ -5,6 +5,8 @@
 ### Estrategia #1 Sliding Windows. 
 Por Lizandro Ramírez.
 
+[![Run on Repl.it](https://repl.it/badge/github/difo2
+
 #### Introducción:
 
 Estos ejercicios que presentaremos a continuación se fundamentan en la estrategia Slinding Windows. Esta se aplica a problemas donde sea necesario recorrer una lista de elementos en donde tengas que buscar o calcular algo a partir de sub arreglos con elementos consecutivos de un tamaño k elementos.
