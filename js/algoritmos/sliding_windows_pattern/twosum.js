@@ -14,14 +14,14 @@ return [0, 1].
  * @return {number[]}
  */
 
-var twoSum = function(nums, target) {
+var twoSum = function (nums, target) {
 	const mins = nums.filter((num) => nums.includes(target - num));
 	const one = mins[0];
 	const two = mins.find((min) => min + one == target);
-	return [ nums.indexOf(one), nums.indexOf(two) ];
+	return [nums.indexOf(one), nums.indexOf(two)];
 };
 
-console.log(twoSum([ 2, 6, 4, 11, 7 ], 9));
+console.log(twoSum([2, 6, 4, 11, 7], 9));
 // resp. [ 0, 1 ]
 
 //Solucion sin map o filter TC O(n) SC O(1)
@@ -30,7 +30,7 @@ console.log(twoSum([ 2, 6, 4, 11, 7 ], 9));
 
 let twoSumOn = (arr, target) => {
 	//first thing is sorted my arr
-	let arrSorted = [ ...arr ].sort((a, b) => a - b);
+	let arrSorted = [...arr].sort((a, b) => a - b);
 	let left = 0;
 	let currentSum = 0;
 
@@ -45,7 +45,7 @@ let twoSumOn = (arr, target) => {
 			left = arr.indexOf(arrSorted[left]);
 			rigth = arr.indexOf(arrSorted[rigth]);
 
-			return [ left, rigth ];
+			return [left, rigth];
 		}
 
 		if (currentSum > target) {
@@ -55,10 +55,10 @@ let twoSumOn = (arr, target) => {
 		}
 	}
 
-	return [ -1, -1 ];
+	return [-1, -1];
 };
 
-console.log(twoSumOn([ 2, 6, 4, 11, 7 ], 9));
+console.log(twoSumOn([2, 6, 4, 11, 7], 9));
 
 // Solucion con Hash Table, usando object map en js OJO MAS INGENIOSA
 
@@ -71,11 +71,28 @@ const twoSumHash = (arr, target) => {
 		// primera condicion encontrar el valor x = target - y
 		if (arrMap.has(target - arr[i])) {
 			let x = arrMap.get(target - arr[i]);
-			return [ x, i ];
+			return [x, i];
 		} else {
 			arrMap.set(arr[i], i);
 		}
 	}
 };
 
-console.log(twoSumHash([ 2, 6, 4, 11, 7 ], 9));
+
+const twoSumHashObjet = (arr, target) => {
+
+	let hash = {}
+
+	for (let i = 0; i < arr.length; ++i) {
+		if ((target - arr[i]) in hash) {
+			return true;
+		} else {
+			hash[arr[i]] = i;
+		}
+	}
+
+	return false;
+
+}
+
+console.log(twoSumHashObjet([2, 6, 4, 11, 7], 9));
