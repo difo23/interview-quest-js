@@ -13,8 +13,8 @@ function maxSumK(arr, k) {
 	for (let i = 0; i < arr.length; i++) {
 		sum += arr[i];
 		if (i >= k - 1) {
-            max = Math.max(max, sum);
-            //Colocar los (-k-1) entre parentesis es importante
+            		max = Math.max(max, sum);
+           		//Colocar los (-k-1) entre parentesis es importante
 			sum -= arr[i - (k - 1)];
 		}
 	}
