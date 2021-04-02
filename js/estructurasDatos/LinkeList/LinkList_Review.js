@@ -20,7 +20,7 @@ class LinkList {
 		while (pos <= this._length) {
 			if (pos === node.position) {
 				node.position++;
-				pos++;
+				
 			}
 			if (!node.next) return;
 			node = node.next;
@@ -34,7 +34,7 @@ class LinkList {
 		while (pos <= this._length) {
 			if (pos === node.position) {
 				node.position--;
-				pos++;
+				
 			}
 			if (!node.next) return;
 			node = node.next;
