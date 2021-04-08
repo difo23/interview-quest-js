@@ -15,9 +15,10 @@ Estos ejercicios que presentaremos a continuación se fundamentan en la estrateg
 Dado un arreglo, encuentra el promedio de todos los sub arreglos de tamaño k.
 
 Input: arr = [1, 3, 2, 6, -1, 4, 1, 8, 2];  k= 5
+
 Output: [ 2.2, 2.8, 2.4, 3.6, 2.8]
 
-![Problema 1](https://lh6.googleusercontent.com/5LgvQJz1nniwMIqEs8csP2_tOMUq81vDE91atpH59fYgcva-aGcsdM6SEhSoh9ImtxwYm9mSjhrLNIuTZJnPUnPZ_FELKJSVUsAAzKTN)
+<!-- ![Problema 1](https://lh6.googleusercontent.com/5LgvQJz1nniwMIqEs8csP2_tOMUq81vDE91atpH59fYgcva-aGcsdM6SEhSoh9ImtxwYm9mSjhrLNIuTZJnPUnPZ_FELKJSVUsAAzKTN) -->
 
 Este problema puede tener varias soluciones posibles que pueden ser validas,  en esta introducción tomaremos dos soluciones posibles, una solución que no sigue ninguna estrategia en particular que le llamaremos fuerza bruta (FB) y otra solución que si sigue una estrategia en este caso Sliding Windows (SW). Con estas dos estrategias vamos a resaltar la importancia de tener un plan a seguir bien pensado para resolver este tipo de problemas. 
 
@@ -35,12 +36,13 @@ Esta estrategia nos arroja que para un n = 9  tendremos 25 operaciones,  para el
 #### Estrategia de Slinding Window:
 
 En la siguiente solución implementamos la estrategia de sliding windows, esta estrategia busca eliminar el ciclo interno  de la solución presentada por fuerza bruta. La idea principal se basa en ir sacando el último elemento de la ventana  y agregando el siguiente, solo hay que tener en consideración los índices de los elementos a sacar cuando el arreglo ha recorrido el tamaño de k en adelante.
-![Problema 1](https://lh3.googleusercontent.com/acgmALBsJEokk6bwltWsTKCyIPvkw-wxrjUvJC4oXeehkd1bU4V2HPOZwoz7MtwvxQ8IDbubqdUuCVj66SRf3f4sKcMUc709ethmQzB2)
+
+<!-- ![Problema 1](https://lh3.googleusercontent.com/acgmALBsJEokk6bwltWsTKCyIPvkw-wxrjUvJC4oXeehkd1bU4V2HPOZwoz7MtwvxQ8IDbubqdUuCVj66SRf3f4sKcMUc709ethmQzB2) -->
 
 
 El centro de la estrategia esta en esta parte del código, en donde se realiza la salida de un elemento desde que i alcanza el valor de k:
 
-![Problema 1](https://lh5.googleusercontent.com/BcseciTB7NzPLTYVomsm3pbltz5zv5hTvCFw1IfNe5yzjUFk1f8l__izz455zvfJFg3Jd-z0US2nbcLIpptHh9JMwwumAtY20l2IVrk)
+<!-- ![Problema 1](https://lh5.googleusercontent.com/BcseciTB7NzPLTYVomsm3pbltz5zv5hTvCFw1IfNe5yzjUFk1f8l__izz455zvfJFg3Jd-z0US2nbcLIpptHh9JMwwumAtY20l2IVrk) -->
 
 En la solución usando la estrategia de sliding windows podemos notar que las operaciones se reducen a 5, siendo mucho menos operaciones que sin usar una estrategia. Los dos algoritmos llegan al mismo resultado pero su eficiencia es muy distinta. La big O de este algoritmo con la estrategia de Sliding Windows es O(n).
 
