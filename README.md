@@ -27,9 +27,28 @@ Este problema puede tener varias soluciones posibles que pueden ser validas,  en
 Estrategia de Fuerza Bruta:
 
 La primera idea que nos llega a la mente para resolver este problema, es usar ciclos anidados. El primer ciclo recorre los elementos del arreglo desde el índice 0 hasta  (tamaño del arreglo - k)+1. El ciclo anidado  recorre los elementos con una relación de k, haciendo las operaciones correspondientes para obtener el promedio.
-![Problema 1](https://lh4.googleusercontent.com/Ma5kaP-NAVe7Bf7iXTER0na9k-vZae6szDWfUfzGdRG9MMXx6F_RFh7OzNq3OcVVR0yUksYaUpo7MBg8UfQ8eO-o985CekQkxwr2HZ0PmJ8HSJHPaiUNJVxjvfDs-Qs1HGsoDwra)
 
+<!-- https://lh4.googleusercontent.com/Ma5kaP-NAVe7Bf7iXTER0na9k-vZae6szDWfUfzGdRG9MMXx6F_RFh7OzNq3OcVVR0yUksYaUpo7MBg8UfQ8eO-o985CekQkxwr2HZ0PmJ8HSJHPaiUNJVxjvfDs-Qs1HGsoDwra -->
+```js
+let promSubKFB = (arr, k) => {
+  let len = arr.length,
+    sum,
+    operaciones = 0,
+    prom = [];
 
+  for (let i = 0; i < len - k + 1; ++i) {
+    sum = 0;
+    for (let j = 0; j < k; ++j) {
+      sum += arr[i + j];
+      operaciones++;
+    }
+    prom.push(sum / k);
+  }
+  console.log("n-k:", len - 5, "Operaciones:", operaciones);
+  return prom;
+};
+
+```
 
 Esta estrategia nos arroja que para un n = 9  tendremos 25 operaciones,  para el escenario de pruebas anterior, claramente la O(n*m) es la big O que representa esta solución donde m representa él (tamaño del arreglo -k) y  m el tamaño del sub arreglo k. En definitiva se puede decir que es un O(n²) algo que no resulta ser una solución muy eficiente.
 
